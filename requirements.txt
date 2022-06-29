@@ -1,0 +1,7 @@
+xarray
+pandas
+dask
+scipy
+statsmodels
+arrow
+fastapi
