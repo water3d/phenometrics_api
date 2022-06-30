@@ -1,4 +1,4 @@
-from . import phenolopy
+import phenolopy
 import xarray
 import numpy
 from datetime import datetime
@@ -6,6 +6,12 @@ import copy
 
 import datetime
 import arrow
+
+
+def get_phenometrics_stats():
+	# PLACEHOLDER - We'll make one that does what get_phenometrics_basic does, but it runs min/max/mean/median timeseries
+	# and returns some qualitative information on the result
+	pass
 
 
 def get_phenometrics_basic(measurements, index_field, date_field, date_format="%Y/%m/%d"):
@@ -30,7 +36,7 @@ def get_phenometrics_basic(measurements, index_field, date_field, date_format="%
 	# then calculate the phenometrics
 	results = phenolopy.calc_phenometrics(da)
 
-	return results
+	return {"measurements_numpy": measurements_numpy, "measurements_da": da, "results": results}
 
 
 def _preprocess_measurements(raw_measurements, index_field, date_field, date_format="%Y/%m/%d"):
